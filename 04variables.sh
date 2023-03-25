@@ -6,4 +6,4 @@ c=30
 
 echo $a
 echo ($a)
-echo "$c
+echo "$c"
