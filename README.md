@@ -11,3 +11,6 @@ Along with linux Bash syntax
 Then we will automate the infrastructure provisioning
 And then configuration management.
 >>>>>>> 88cb50630103905785816aa68b0c24f0c7727cbb
+
+ # Bash scripting agenda
+ 
