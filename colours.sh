@@ -14,3 +14,5 @@ echo -e "\e[32m I am printing the green colour\e [0m"
 echo -e "\e[33m I am printing the green colour\e [0m"
 echo -e "\e[34m I am printing the green colour\e [0m"
 echo -e "\e[35m I am printing the green colour\e [0m"
+
+echo -e "\e[41;32m I am printing the green colour with red background coolour\e [0m"
