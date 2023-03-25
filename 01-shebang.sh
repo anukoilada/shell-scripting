@@ -11,3 +11,7 @@
 echo hello world
 echo This is the first session of the Bashgi
 echo So we know how to run a script
+
+echo line1
+echo line2
+echo line3
