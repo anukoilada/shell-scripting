@@ -1,7 +1,7 @@
 #1/bin/bash
 
-TODAYDATE=${date +%f}
+TODAYDATE = ${date +%F}
 
-echo -e "Welcome to Bash training. Today date is \e[32m ${TODAYDATE} \e [0m"
+echo -e "Welcome to Bash training. Today date is \e[32m ${TODAYDATE} \e[0m"
 
 
