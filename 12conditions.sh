@@ -23,4 +23,8 @@ case $ACTION in
         echo "Restarting Payment Service"      
         exit 3  
         ;;
+     *) 
+        echo -e "Valid Options are \e[32m start  or stop  or restart \e[0m "
+        exit 4
+        ;;
  esac       
