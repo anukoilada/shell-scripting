@@ -10,7 +10,21 @@ This repo is created to share all the linux basics
 Along with linux Bash syntax
 Then we will automate the infrastructure provisioning
 And then configuration management.
->>>>>>> 88cb50630103905785816aa68b0c24f0c7727cbb
+
 
  # Bash scripting agenda
- 
+ 1. SheBang Notation and Comments
+2. Printing
+3. Variables
+    - Local Variables.
+    - Environment Variables.
+    - Command Substitution.
+4. Inputs
+    - Special Variables
+    - Prompts
+5. Functions
+6. Redirectors & Quotes & Exit status 
+7. Conditions
+8. Loops
+9. Basis of SED Command
+10. Commands
