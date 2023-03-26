@@ -2,5 +2,6 @@
 
 TODAYDATE="03-20-2023"
 
-echo "Welcome to Bash training. Today date is ${TODAYDATE}"
+echo -e "Welcome to Bash training. Today date is \e[32m ${TODAYDATE} \e [0m"
+
 
