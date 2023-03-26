@@ -1,5 +1,6 @@
-#1 /bin/bash
+#1/bin/bash
 
-TodayDate ="03-25-2023"
+TODAYDATE="03-20-2023"
 
-echo "Welcome to Bash training. Today date is ${TodayDate}"
+echo "Welcome to Bash training. Today date is ${TODAYDATE}"
+
