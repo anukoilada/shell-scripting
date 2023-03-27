@@ -21,7 +21,19 @@ stat() {
     fi 
 }
 
-CREATE_USER() {
+NODEJS() {
+
+    echo -n "Configuring the nodejs repo :"
+    curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> $LOGFILE
+    stat $?  
+
+    echo -n "Installing NodeJS :"
+    yum install nodejs -y &>> $LOGFILE
+    stat $?
+
+    # Calling Create-User Functon 
+    CREATE_USER
+    CREATE_USER() {
 
     id $APPUSER  &>> $LOGFILE
     if [ $? -ne 0 ] ; then 
@@ -32,7 +44,9 @@ CREATE_USER() {
 
 }
 
-DOWNLOAD_AND_EXTRACT() {
+    # Calling Download_And_Extract Function
+    DOWNLOAD_AND_EXTRACT
+    DOWNLOAD_AND_EXTRACT() {
 
     echo -n "Downloading the $COMPONENT component :"
     curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
@@ -51,7 +65,9 @@ DOWNLOAD_AND_EXTRACT() {
 
 }
 
-NPM_INSTALL() {
+    # Calling NPM Install Function
+    NPM_INSTALL
+    NPM_INSTALL() {
 
     echo -n "Installing the $COMPONENT Application :"
     cd /home/$APPUSER/$COMPONENT/ 
@@ -60,7 +76,10 @@ NPM_INSTALL() {
 
 }
 
-CONFIG_SVC() {
+
+    # Calling Config-Svc Function
+    CONFIG_SVC
+    CONFIG_SVC() {
 
     echo -n "Updating the systemd file with DB Details :"
     sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
@@ -74,3 +93,12 @@ CONFIG_SVC() {
     stat $?
 
 }
+
+}
+
+
+
+
+
+
+
