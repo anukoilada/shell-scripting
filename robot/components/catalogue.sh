@@ -1,5 +1,6 @@
 # /bin/bash
 
+# set -e 
 LOGFILE="/tmp/$COMPONENT.log"
 APPUSER=roboshop
 
