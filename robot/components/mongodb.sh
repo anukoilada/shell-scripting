@@ -2,8 +2,7 @@
 
 # set -e 
 
-COMPONENT=mongodb
-source components/common.sh  
+COMPONENT=mongodb  
 
 
 echo -n "Configuring the $COMPONENT repo :"
