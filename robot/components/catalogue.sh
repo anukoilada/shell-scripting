@@ -33,7 +33,6 @@ NODEJS() {
     stat $?
 
     # Calling Create-User Functon 
-    CREATE_USER
     CREATE_USER() {
 
     id $APPUSER  &>> $LOGFILE
@@ -43,10 +42,9 @@ NODEJS() {
         stat $? 
     fi 
 
-}
+    }
 
     # Calling Download_And_Extract Function
-    DOWNLOAD_AND_EXTRACT
     DOWNLOAD_AND_EXTRACT() {
 
     echo -n "Downloading the $COMPONENT component :"
@@ -64,10 +62,9 @@ NODEJS() {
     chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
     stat $?
 
-}
+    }
 
     # Calling NPM Install Function
-    NPM_INSTALL
     NPM_INSTALL() {
 
     echo -n "Installing the $COMPONENT Application :"
@@ -75,11 +72,10 @@ NODEJS() {
     npm install &>> $LOGFILE
     stat $? 
 
-}
+    }
 
 
     # Calling Config-Svc Function
-    CONFIG_SVC
     CONFIG_SVC() {
 
     echo -n "Updating the systemd file with DB Details :"
@@ -93,7 +89,7 @@ NODEJS() {
     systemctl restart $COMPONENT &>> $LOGFILE
     stat $?
 
-}
+    }
 
 }
 
