@@ -1,4 +1,4 @@
-# /bin/bash
+#1 /bin/bash
 
 COMPONENT=catalogue
 LOGFILE="/tmp/$COMPONENT.log"
