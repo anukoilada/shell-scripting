@@ -1,6 +1,7 @@
 # /bin/bash 
 
 COMPONENT=redis
+LOGFILE="/tmp/$COMPONENT.log"
 
 # Validting whether the executed user is a root user or not 
 ID=$(id -u)
