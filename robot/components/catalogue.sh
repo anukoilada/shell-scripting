@@ -22,18 +22,15 @@ stat() {
     fi 
 }
 
-NODEJS() {
+echo -n "Configuring the nodejs repo :"
+curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> $LOGFILE
+stat $?  
 
-    echo -n "Configuring the nodejs repo :"
-    curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> $LOGFILE
-    stat $?  
+echo -n "Installing NodeJS :"
+yum install nodejs -y &>> $LOGFILE
+stat $?
 
-    echo -n "Installing NodeJS :"
-    yum install nodejs -y &>> $LOGFILE
-    stat $?
-
-    # Calling Create-User Functon 
-    CREATE_USER() {
+    # Calling Create-User Functon
 
     id $APPUSER  &>> $LOGFILE
     if [ $? -ne 0 ] ; then 
@@ -42,10 +39,10 @@ NODEJS() {
         stat $? 
     fi 
 
-    }
+    
 
     # Calling Download_And_Extract Function
-    DOWNLOAD_AND_EXTRACT() {
+    
 
     echo -n "Downloading the $COMPONENT component :"
     curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
@@ -62,21 +59,20 @@ NODEJS() {
     chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
     stat $?
 
-    }
+    
 
     # Calling NPM Install Function
-    NPM_INSTALL() {
+    
 
     echo -n "Installing the $COMPONENT Application :"
     cd /home/$APPUSER/$COMPONENT/ 
     npm install &>> $LOGFILE
     stat $? 
 
-    }
-
+    
 
     # Calling Config-Svc Function
-    CONFIG_SVC() {
+
 
     echo -n "Updating the systemd file with DB Details :"
     sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
@@ -89,9 +85,9 @@ NODEJS() {
     systemctl restart $COMPONENT &>> $LOGFILE
     stat $?
 
-    }
+    
 
-}
+
 
 
 
