@@ -1,8 +1,10 @@
 # /bin/bash 
 
 COMPONENT=cart
-LOGFILE="/tmp/$COMPONENT.log"
-APPUSER=roboshop
+
+source components/common.sh    # Source is going to load the file, so that you can call all of them as per your need
+
+NODEJS                         # Calling NodeJS Function.
 
 # Validting whether the executed user is a root user or not 
 ID=$(id -u)
