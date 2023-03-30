@@ -24,16 +24,13 @@ stat() {
     echo -n "Installing Python and dependencies :"
     yum install python36 gcc python3-devel -y  &>> $LOGFILE
     stat $?
-
-    # Calling Create-User Functon 
+ 
      id $APPUSER  &>> $LOGFILE
     if [ $? -ne 0 ] ; then 
         echo -n "Creating the Application User Account :" 
         useradd roboshop &>> $LOGFILE
         stat $? 
     fi 
-
-    DOWNLOAD_AND_EXTRACT() {
 
     echo -n "Downloading the $COMPONENT component :"
     curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
