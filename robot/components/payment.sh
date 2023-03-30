@@ -65,7 +65,7 @@ stat() {
     CONFIG_SVC() {
 
     echo -n "Updating the systemd file with DB Details :"
-    sed -i -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/'  -e  's/CARTHOST/cart.roboshop.internal/' internal/'  /home/$APPUSER/$COMPONENT/systemd.service
+    sed -i -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/'  -e  's/CARTHOST/cart.roboshop.internal/'  /home/$APPUSER/$COMPONENT/systemd.service
     mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     stat $? 
 
