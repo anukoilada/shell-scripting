@@ -61,9 +61,6 @@ stat() {
     echo -n "Updating the $COMPONENT.ini file :"
     sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/$APPUSER/$COMPONENT/$COMPONENT.ini 
 
-    # Calling Config-Svc Function
-    CONFIG_SVC() {
-
     echo -n "Updating the systemd file with DB Details :"
     sed -i -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/'  -e  's/CARTHOST/cart.roboshop.internal/'  /home/$APPUSER/$COMPONENT/systemd.service
     mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
@@ -72,7 +69,7 @@ stat() {
     echo -n "Starting the $COMPONENT service : "
     systemctl daemon-reload &>> $LOGFILE
     systemctl enable $COMPONENT &>> $LOGFILE
-    systemctl start $COMPONENT &>> $LOGFILE
+    systemctl restart $COMPONENT &>> $LOGFILE
     stat $?
 
 
