@@ -15,4 +15,4 @@ echo -n "Ami ID is $AMI_ID"
 
 
 echo -n "Launching the instance with $AMI_ID as AMI :"
-aws ec2 run-instances --image-id $AMI_ID --instance-type t3.micro --tag-specifications "ResourceType=instance,Tags=[{Key=name,Value=$COMPONENT}]" | jq
+aws ec2 run-instances --image-id $AMI_ID --instance-type t3.micro --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]" | jq
