@@ -18,7 +18,8 @@ echo -n "Ami ID is $AMI_ID"
 
 echo -n "Launching the instance with $AMI_ID as AMI :"
 
-    
+create_server() {
+
     echo "*** Launching $COMPONENT Server ***"
 
     IPADDRESS=$(aws ec2 run-instances --image-id $AMI_ID \
@@ -31,6 +32,19 @@ echo -n "Launching the instance with $AMI_ID as AMI :"
     aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file:///tmp/record.json | jq
 
     echo "*** $COMPONENT Server Completed ***"
+
+}
+
+if [ "$1" == "all" ] ; then 
+    for component in frontend mongodb catalogue cart user mysql redis rabbitmq shipping payment ; do  
+        COMPONENT=$component 
+        create_server
+    done
+
+else 
+        create_server
+
+fi 
 
 
 
