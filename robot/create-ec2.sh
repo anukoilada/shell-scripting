@@ -4,7 +4,7 @@
 
 if [ -z "$1" ]; then 
     echo -e "\e[31m Component Name is required \e[0m \t\t"
-    echo -e "\t\t\t \e[32m Sample Usage is : $ bash create-ec2.sh \e[0m"
+    echo -e "\t\t\t \e[32m Sample Usage is : $ bash create-ec2.sh user \e[0m"
     exit 1
 fi 
 
