@@ -27,7 +27,7 @@ echo -n "Launching the instance with $AMI_ID as AMI :"
                     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
     sed -e "s/COMPONENT/${COMPONENT}/" -e  "s/IPADDRESS/${IPADDRESS}/" robot/record.json > /tmp/record.json
-    aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file:///tmp/record.json | jq
+    aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch=file:///tmp/record.json | jq
 
     echo "*** $COMPONENT Server Completed ***"
 
