@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
     exit 1
 fi 
 
-HOSTEDZONEID="Z096213084GYRYZXR9VK"
+HOSTEDZONEID="Z09034203E2XOTY5BDYPO"
 COMPONENT=$1 
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
